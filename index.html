@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="eventsApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Events</title>
+  <!-- custom style -->
+  <link rel="stylesheet" href="./css/styles.css">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<body>
+  <header id="header">
+    <div id="logo">
+      <a href="#!/search">EventsApp</a>
+    </div>
+    <div class="navbar">
+      <a href="#!/event-list"><i class="fas fa-search"></i></a>
+      <a href="#!/favorites">
+        <i class="fas fa-star"></i>
+      </a>
+    </div>
+  </header> 
+
+    <ng-view></ng-view>
+
+
+
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- custom script -->
+    <script>
+      // nav transition
+    $(window).scroll(function () {
+      if ($(window).scrollTop() >= 50) {
+      $('#header')
+        .css('background','#2948ff')
+      $('.resume')
+        .css('background','#262626');
+      } else {
+      $('#header')
+        .css('background','transparent');
+      $('.resume')
+        .css('background','#2948ff');
+      }
+    });
+    </script>
+    <!-- angularjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <!-- angularjs route -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
+
+    <script src="./app/app.module.js"></script>
+    <script src="./app/app.config.js"></script>
+    <script src="./app/app.service.js"></script>
+
+    <script src="./app/eventList/eventList.component.js"></script>
+    <script src="./app/bucketlistPage/bucketlistPage.component.js"></script>
+    <script src="./app/searchCriteria/searchCriteria.component.js"></script>
+</body>
+</html>

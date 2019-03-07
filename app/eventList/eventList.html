@@ -1,0 +1,41 @@
+<div class="events">
+
+  <section ng-repeat="post in $ctrl.posts" class="event">
+   <div class="details">
+    <p>{{post.name}}</p>
+    <p>{{post.dates.start.localDate}}</p>
+   </div>
+    <img src="{{post.images[7].url}}">
+
+    <div class="buttons">
+      <div class="detailbuttons">
+      <a class="btn" ng-click="$ctrl.toggle = post; showDiv=true;">
+        <i class="fas fa-angle-down" ng-hide="showDiv"></i>
+      </a>
+      <a class="close" ng-click="$ctrl.toggle = false; showDiv=false;">
+        <i class="fas fa-times" ng-hide="!showDiv"></i>
+      </a>
+    </div>
+    <div class="favbuttons">
+      <a ng-click="$ctrl.saveFavorite(post); showFav=true;">
+        <i class="far fa-star" ng-hide="showFav"></i>
+      </a>
+      <a ng-click="$ctrl.removeFavorite(post); showFav=false">
+        <i class="fas fa-star" ng-hide="!showFav"></i>
+      </a>
+    </div>
+    </div>
+    
+    <div class="animated bounceIn eventDetails" ng-class="{'hide' : $ctrl.toggle != post}">
+      
+      <p>Genre: {{post.classifications[0].genre.name}}</p>
+      <p>{{post._embedded.venues[0].name}}</p>
+      <p>Starting at: {{post.priceRanges[0].min | currency}}</p>
+      <p>{{post.ticketLimit.info}}</p>
+      <a href="{{post.url}}">Get Your Tickets Now!</a>
+    </div>
+
+
+  </section>
+  <div class="noshows" ng-show="{{posts.length == 0}}"><p>sorry, no shows bro</p></div>
+</div>
